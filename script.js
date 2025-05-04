@@ -85,4 +85,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
 });
+    // Additional Synergy Logic (You can expand this as needed)
+    // Example to add more synergies:
+    // - You can add more synergies to the `handpickedSynergies` array as needed.
+    // - Adjust the synergy matching logic based on the type of synergies you want to support.
+
+    // Add extra functionality for checking for combinations of more than two characters
+    function checkForMultipleCharacterSynergies() {
+        // You could create a more complex synergy system here, where combinations of 3+ characters create synergies.
+        // For now, this is a placeholder to show where that logic could go.
+    }
+
+    // Helper function to format character names for image paths
+    function formatCharacterName(character) {
+        return character.toLowerCase().replace(' ', '_');
+    }
+
+    // Add more functions or helper methods as necessary for further synergies or game mechanics.
+    
