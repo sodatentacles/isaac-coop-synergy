@@ -35,13 +35,20 @@ section {
 /* Character Grid */
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 17 equal columns */
-    grid-template-rows: auto; /* This ensures only 2 rows */
-    gap: 10px; /* Gap between the characters */
-    justify-items: center; /* Centers characters in each cell */
+    grid-template-columns: repeat(17, 1fr); /* 17 columns */
+    grid-template-rows: auto; /* Let rows auto-adjust based on content */
+    gap: 10px; /* Spacing between buttons */
+    justify-items: center; /* Center characters inside grid cells */
     margin-bottom: 20px;
+    max-width: 100%;
     width: 100%;
-    max-width: 100%; /* Prevents the grid from stretching wider */
+}
+
+/* To ensure only two rows, we'll force a max height for two rows of content */
+.character-grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .character {
@@ -60,12 +67,11 @@ section {
 }
 
 .character:hover {
-    transform: scale(1.05); /* Slight enlargement on hover */
+    transform: scale(1.05);
 }
 
 .character.selected img {
-    border-color: #00ccff; /* Add border on selection */
-
+    border-color: #00ccff;
 }
 
 /* Selected Characters */
