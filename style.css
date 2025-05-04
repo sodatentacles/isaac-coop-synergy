@@ -38,11 +38,12 @@ section {
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
     justify-items: center; /* Ensures characters are centered in their cells */
-    margin-bottom: 20px;
-    padding: 10px;
+    margin: 0 auto; /* Centers the grid horizontally */
+    width: 90%; /* Adjust width to prevent overflowing */
+    max-width: 1200px; /* Optional: limits the maximum width of the grid */
     background-color: #222;
     border-radius: 10px;
-    max-width: 100%; /* Ensures the grid doesn't overflow */
+    padding: 10px;
 }
 
 .character-grid-row {
