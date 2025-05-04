@@ -47,10 +47,11 @@ h1, h2 {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(17, 1fr);
+    gap: 16px;
     justify-content: center;
-    margin-bottom: 20px;
+    width: fit-content;
+    margin: 0 auto 20px auto;
 }
 
 .character {
