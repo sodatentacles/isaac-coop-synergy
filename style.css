@@ -34,13 +34,11 @@ section {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr);
-    grid-auto-rows: auto;
+    grid-template-columns: repeat(17, auto);
+    grid-template-rows: repeat(2, auto);
     gap: 20px;
-    justify-items: center;
-    align-items: start;
+    justify-content: center;
     margin-bottom: 20px;
-    width: 100%;
 }
 
 /* To ensure only two rows, we'll force a max height for two rows of content */
