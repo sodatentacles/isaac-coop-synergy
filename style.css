@@ -9,45 +9,69 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh; /* Ensure content is centered vertically */
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    min-height: 100vh;
 }
 
-/* Container */
+/* Ensure that the container is centered */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
-    width: 100%;
 }
 
-/* Character Grid (Fixed width) */
+/* Section Titles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Section Titles */
+section {
+    margin-bottom: 30px;
+}
+
+/* Handpicked Synergies */
+.handpicked-synergies {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Character Grid */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
     justify-items: center; /* Centers characters inside grid cells */
-    width: 1360px; /* Fixed width to match exact column count */
-    margin: 0 auto; /* Ensure grid is centered */
+    width: 100%; /* Full width */
+    max-width: 1360px; /* Optional max-width */
+    margin: 0 auto; /* Center the grid container itself */
     padding: 0 10px; /* Optional padding */
-    overflow: hidden; /* Hide anything that overflows the grid */
 }
 
-/* Ensure that the rows are also centered */
+/* Character Grid Row */
 .character-grid-row {
-    display: flex;
-    justify-content: center; /* Centers the rows within the grid */
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr); /* 17 columns */
     gap: 16px;
+    justify-items: center; /* Centers items within the grid */
+    width: 100%; /* Ensure it takes up the full available space */
+    margin: 0 auto; /* Ensures the rows are also centered */
 }
 
-/* Character styling */
-.character {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+/* Character Styling */
+.character p {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.2;
+    max-width: 70px;
+    white-space: normal;
+    margin-top: 5px;
 }
 
 .character img {
@@ -55,18 +79,8 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
+    border: 2px solid transparent;
     background-color: #333;
-}
-
-.character p {
-    color: #fff;
-    font-size: 12px;
-    text-align: center;
-    word-break: break-word;
-    line-height: 1.2;
-    max-width: 70px;
-    white-space: normal;
-    margin-top: 5px;
 }
 
 .char-name {
@@ -77,12 +91,26 @@ body {
     word-break: break-word;
 }
 
+/* Hover Effect */
 .character:hover {
     transform: scale(1.05);
 }
 
-.character.selected img {
-    border-color: #00ccff;
+/* Glowing Effect */
+.character.glowing {
+    animation: glowing 1.5s ease-in-out infinite;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 15px #00ccff;
+    }
+    50% {
+        box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+    }
+    100% {
+        box-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 15px #00ccff;
+    }
 }
 
 /* Selected Characters */
@@ -95,20 +123,6 @@ body {
     background-color: #2a2a2a;
     border-radius: 8px;
     min-height: 70px;
-}
-
-.selected-character {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-
-.selected-character img {
-    width: 50px;
-    height: 50px;
-    border-radius: 6px;
-    border: 2px solid #00ccff;
 }
 
 /* Clear Button */
