@@ -1,172 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isaac Coop Synergy Tool</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .character-grid {
-      display: grid;
-      grid-template-columns: repeat(17, 1fr);
-      gap: 5px;
-      max-width: 100%;
-      margin: 20px auto;
-    }
-    .character-button img {
-      width: 48px;
-      height: 48px;
-      cursor: pointer;
-      border: 2px solid transparent;
-    }
-    .character-button img:hover {
-      border-color: #aaa;
-    }
-    #selected-characters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 20px 0;
-      gap: 10px;
-    }
-    .selected-char {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .selected-char img {
-      width: 48px;
-      height: 48px;
-    }
-    #synergy-output {
-      margin: 20px 0;
-    }
-    .synergy-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .synergy-item img {
-      width: 64px;
-      height: 64px;
-    }
-    #clear-button {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac Coop Synergy Tool</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Isaac Coop Synergy Tool</h1>
+    <div class="container">
+        <h1>Isaac Coop Synergy Tool</h1>
 
-  <h2>Character Selection</h2>
-  <div id="character-grid" class="character-grid"></div>
+        <!-- Handpicked Synergies -->
+        <section class="handpicked-synergies">
+            <h2>Handpicked Synergies</h2>
+            <p>WIP!</p>
+        </section>
 
-  <h2>Selected Characters</h2>
-  <div id="selected-characters"></div>
+        <!-- Character Grid -->
+        <section class="character-grid">
+                <div class="character" data-character="Isaac"><img src="images/isaac.png"><p>Isaac</p></div>
+                <div class="character" data-character="Magdalene"><img src="images/magdalene.png"><p>Magdalene</p></div>
+                <div class="character" data-character="Cain"><img src="images/cain.png"><p>Cain</p></div>
+                <div class="character" data-character="Judas"><img src="images/judas.png"><p>Judas</p></div>
+                <div class="character" data-character="Blue Baby"><img src="images/blue_baby.png"><p>Blue Baby</p></div>
+                <div class="character" data-character="Eve"><img src="images/eve.png"><p>Eve</p></div>
+                <div class="character" data-character="Samson"><img src="images/samson.png"><p>Samson</p></div>
+                <div class="character" data-character="Azazel"><img src="images/azazel.png"><p>Azazel</p></div>
+                <div class="character" data-character="Lazarus"><img src="images/lazarus.png"><p>Lazarus</p></div>
+                <div class="character" data-character="Eden"><img src="images/eden.png"><p>Eden</p></div>
+                <div class="character" data-character="Lost"><img src="images/lost.png"><p>Lost</p></div>
+                <div class="character" data-character="Lilith"><img src="images/lilith.png"><p>Lilith</p></div>
+                <div class="character" data-character="Keeper"><img src="images/keeper.png"><p>Keeper</p></div>
+                <div class="character" data-character="Apollyon"><img src="images/apollyon.png"><p>Apollyon</p></div>
+                <div class="character" data-character="Forgotten"><img src="images/forgotten.png"><p>Forgotten</p></div>
+                <div class="character" data-character="Bethany"><img src="images/bethany.png"><p>Bethany</p></div>
+                <div class="character" data-character="Jacob and Esau"><img src="images/jacob_and_esau.png"><p>Jacob<br>and<br>Esau</p></div>
+            </div>
+            <div class="character-grid-row">
+                <div class="character" data-character="Tainted Isaac"><img src="images/tainted_isaac.png"><p>Tainted<br>Isaac</p></div>
+                <div class="character" data-character="Tainted Magdalene"><img src="images/tainted_magdalene.png"><p>Tainted<br>Magdalene</p></div>
+                <div class="character" data-character="Tainted Cain"><img src="images/tainted_cain.png"><p>Tainted<br>Cain</p></div>
+                <div class="character" data-character="Tainted Judas"><img src="images/tainted_judas.png"><p>Tainted<br>Judas</p></div>
+                <div class="character" data-character="Tainted Blue Baby"><img src="images/tainted_blue_baby.png"><p>Tainted<br>Blue<br>Baby</p></div>
+                <div class="character" data-character="Tainted Eve"><img src="images/tainted_eve.png"><p>Tainted<br>Eve</p></div>
+                <div class="character" data-character="Tainted Samson"><img src="images/tainted_samson.png"><p>Tainted<br>Samson</p></div>
+                <div class="character" data-character="Tainted Azazel"><img src="images/tainted_azazel.png"><p>Tainted<br>Azazel</p></div>
+                <div class="character" data-character="Tainted Lazarus"><img src="images/tainted_lazarus.png"><p>Tainted<br>Lazarus</p></div>
+                <div class="character" data-character="Tainted Eden"><img src="images/tainted_eden.png"><p>Tainted<br>Eden</p></div>
+                <div class="character" data-character="Tainted Lost"><img src="images/tainted_lost.png"><p>Tainted<br>Lost</p></div>
+                <div class="character" data-character="Tainted Lilith"><img src="images/tainted_lilith.png"><p>Tainted<br>Lilith</p></div>
+                <div class="character" data-character="Tainted Keeper"><img src="images/tainted_keeper.png"><p>Tainted<br>Keeper</p></div>
+                <div class="character" data-character="Tainted Apollyon"><img src="images/tainted_apollyon.png"><p>Tainted Apollyon</p></div>
+                <div class="character" data-character="Tainted Forgotten"><img src="images/tainted_forgotten.png"><p>Tainted<br>Forgotten</p></div>
+                <div class="character" data-character="Tainted Bethany"><img src="images/tainted_bethany.png"><p>Tainted<br>Bethany</p></div>
+                <div class="character" data-character="Tainted Jacob"><img src="images/tainted_jacob.png"><p>Tainted<br>Jacob</p></div>
+            </div>
+        </section>
 
-  <h2>Synergies</h2>
-  <div id="synergy-output"></div>
+        <!-- Selected Characters -->
+        <section class="selected-characters-section">
+            <h2>Selected Characters</h2>
+            <div class="selected-characters"></div>
+        </section>
 
-  <button id="clear-button" onclick="clearSelection()">Clear Selection</button>
+        <!-- Synergy Results -->
+        <section class="synergy-results">
+            <h2>Synergy Results</h2>
+            <div class="synergy-output"></div>
+        </section>
 
-  <h2>Teams</h2>
-  <div id="teams-section">
-    <!-- Teams will be added later -->
-  </div>
+        <!-- Clear Button -->
+        <button class="clear-button">Clear Selections</button>
+    </div>
 
-  <script>
-    const characters = [
-      { name: "Isaac", image: "images/isaac.png" },
-      { name: "Magdalene", image: "images/magdalene.png" },
-      { name: "Cain", image: "images/cain.png" },
-      { name: "Judas", image: "images/judas.png" },
-      { name: "???", image: "images/blue_baby.png" },
-      { name: "Eve", image: "images/eve.png" },
-      { name: "Samson", image: "images/samson.png" },
-      { name: "Azazel", image: "images/azazel.png" },
-      { name: "Lazarus", image: "images/lazarus.png" },
-      { name: "Eden", image: "images/eden.png" },
-      { name: "The Lost", image: "images/the_lost.png" },
-      { name: "Lilith", image: "images/lilith.png" },
-      { name: "Keeper", image: "images/keeper.png" },
-      { name: "Apollyon", image: "images/apollyon.png" },
-      { name: "The Forgotten", image: "images/the_forgotten.png" },
-      { name: "Bethany", image: "images/bethany.png" },
-      { name: "Jacob and Esau", image: "images/jacob_and_esau.png" },
-      { name: "Tainted Isaac", image: "images/tainted_isaac.png" },
-      { name: "Tainted Magdalene", image: "images/tainted_magdalene.png" },
-      { name: "Tainted Cain", image: "images/tainted_cain.png" },
-      { name: "Tainted Judas", image: "images/tainted_judas.png" },
-      { name: "Tainted ???", image: "images/tainted_blue_baby.png" },
-      { name: "Tainted Eve", image: "images/tainted_eve.png" },
-      { name: "Tainted Samson", image: "images/tainted_samson.png" },
-      { name: "Tainted Azazel", image: "images/tainted_azazel.png" },
-      { name: "Tainted Lazarus", image: "images/tainted_lazarus.png" },
-      { name: "Tainted Eden", image: "images/tainted_eden.png" },
-      { name: "Tainted Lost", image: "images/tainted_lost.png" },
-      { name: "Tainted Lilith", image: "images/tainted_lilith.png" },
-      { name: "Tainted Keeper", image: "images/tainted_keeper.png" },
-      { name: "Tainted Apollyon", image: "images/tainted_apollyon.png" },
-      { name: "Tainted Forgotten", image: "images/tainted_forgotten.png" },
-      { name: "Tainted Bethany", image: "images/tainted_bethany.png" },
-      { name: "Tainted Jacob", image: "images/tainted_jacob.png" }
-    ];
-
-    const selectedCharacters = [];
-
-    const grid = document.getElementById("character-grid");
-    const selectedContainer = document.getElementById("selected-characters");
-    const synergyOutput = document.getElementById("synergy-output");
-
-    characters.forEach(char => {
-      const button = document.createElement("button");
-      button.className = "character-button";
-      button.innerHTML = `<img src="${char.image}" alt="${char.name}" title="${char.name}">`;
-      button.onclick = () => selectCharacter(char);
-      grid.appendChild(button);
-    });
-
-    function selectCharacter(char) {
-      if (selectedCharacters.length >= 4) return;
-      selectedCharacters.push(char);
-      updateSelected();
-      updateSynergies();
-    }
-
-    function updateSelected() {
-      selectedContainer.innerHTML = "";
-      selectedCharacters.forEach(char => {
-        const div = document.createElement("div");
-        div.className = "selected-char";
-        div.innerHTML = `<img src="${char.image}" alt="${char.name}"><span>${char.name}</span>`;
-        selectedContainer.appendChild(div);
-      });
-    }
-
-    function updateSynergies() {
-      synergyOutput.innerHTML = "";
-      const synergyText = document.createElement("div");
-      synergyText.innerHTML = `<p>Synergy output would be shown here based on selected characters.</p>`;
-      synergyOutput.appendChild(synergyText);
-      // Placeholder — this is where synergy logic will go
-    }
-
-    function clearSelection() {
-      selectedCharacters.length = 0;
-      updateSelected();
-      updateSynergies();
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
