@@ -10,10 +10,8 @@ body {
     align-items: center;
     flex-direction: column;
     min-height: 100vh; /* Ensure content is centered vertically */
-    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -21,17 +19,33 @@ body {
     width: 100%;
 }
 
-/* Character Grid (Fixed width) */
+/* Section Titles */
+section {
+    margin-bottom: 30px;
+}
+
+/* Handpicked Synergies */
+.handpicked-synergies {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Character Grid (Centered) */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
     justify-items: center; /* Centers characters inside grid cells */
-    width: 1360px; /* Fixed width to match exact column count */
-    margin: 0 auto; /* Ensure grid is centered */
+    width: 100%;
+    max-width: 1360px; /* Optional max-width */
+    margin: 0 auto; /* Center the grid container itself */
     padding: 0 10px; /* Optional padding */
-    overflow: hidden; /* Hide anything that overflows the grid */
+    display: flex;
+    justify-content: center; /* Horizontally centers the grid */
 }
 
 /* Ensure that the rows are also centered */
@@ -42,7 +56,7 @@ body {
     gap: 16px;
 }
 
-/* Character styling */
+/* General Character Styling */
 .character {
     display: flex;
     flex-direction: column;
