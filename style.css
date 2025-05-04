@@ -39,6 +39,9 @@ section {
     gap: 10px;
     justify-items: center;
     margin-bottom: 20px;
+    width: 100%; /* Ensure the grid takes the full width */
+    max-width: 100%; /* Prevents it from overflowing */
+    min-width: 100%; /* Ensures grid is wide enough to fit 17 characters */
 }
 
 .character {
