@@ -37,12 +37,10 @@ section {
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
-    justify-items: center; /* Ensures characters are centered in their cells */
-    margin: 0 auto; /* Centers the grid horizontally */
-    width: 90%; /* Adjust width to prevent overflowing */
-    max-width: 1200px; /* Optional: limits the maximum width of the grid */
-    background-color: #222;
-    border-radius: 10px;
+    justify-items: center; /* Centers characters within their grid cells */
+    width: 100%; /* Take up the full width of the parent container */
+    max-width: 1200px; /* Optional: Set a max width to prevent overflow */
+    margin: 0 auto; /* Centers the grid container */
     padding: 10px;
 }
 
@@ -51,9 +49,10 @@ section {
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     gap: 16px;
     justify-items: center; /* Centers items in the grid cells */
-    width: 100%;
-
+    width: 100%; /* Ensures full width for each row */
+    margin: 0 auto; /* Centers the row inside its container */
 }
+
 
 .character p {
     font-size: 12px;
