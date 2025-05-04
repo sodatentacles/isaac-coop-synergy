@@ -35,11 +35,13 @@ section {
 /* Character Grid */
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr); /* This creates 17 columns */
-    grid-template-rows: 1fr 1fr; /* This creates 2 rows */
-    gap: 10px; /* Space between the characters */
-    justify-items: center; /* Centers the items horizontally */
+    grid-template-columns: repeat(17, 1fr); /* 17 equal columns */
+    grid-template-rows: auto; /* This ensures only 2 rows */
+    gap: 10px; /* Gap between the characters */
+    justify-items: center; /* Centers characters in each cell */
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%; /* Prevents the grid from stretching wider */
 }
 
 .character {
@@ -58,11 +60,11 @@ section {
 }
 
 .character:hover {
-    transform: scale(1.05); /* Slight enlargement effect */
+    transform: scale(1.05); /* Slight enlargement on hover */
 }
 
 .character.selected img {
-    border-color: #00ccff;
+    border-color: #00ccff; /* Add border on selection */
 
 }
 
