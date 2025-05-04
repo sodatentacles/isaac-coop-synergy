@@ -14,13 +14,9 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 10px;
-}
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 15px;
+    width: 100%;
 }
 
 /* Section Titles */
@@ -48,15 +44,16 @@ section {
     max-width: 1360px; /* Optional max-width */
     margin: 0 auto; /* Center the grid container itself */
     padding: 0 10px; /* Optional padding */
+    display: flex;
+    justify-content: center; /* Horizontally centers the grid */
 }
 
+/* Ensure that the rows are also centered */
 .character-grid-row {
-    display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 17 columns */
+    display: flex;
+    justify-content: center; /* Centers the rows within the grid */
+    width: 100%;
     gap: 16px;
-    justify-items: center; /* Centers items within the grid */
-    width: 100%; /* Ensure it takes up the full available space */
-    margin: 0 auto; /* Ensures the rows are also centered */
 }
 
 /* General Character Styling */
