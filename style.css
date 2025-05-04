@@ -1,62 +1,44 @@
-/* General Reset and Layout */
+/* General Reset and Base Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #f2f2f2;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #fff;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
 }
 
-/* Title */
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Section Titles */
+section {
+    margin-bottom: 30px;
 }
 
 /* Handpicked Synergies */
 .handpicked-synergies {
-    margin-bottom: 20px;
-}
-
-.handpicked-synergies h2 {
-    font-size: 1.8em;
-}
-
-.handpicked-synergies .synergy-list {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.handpicked-synergies .handpicked-synergy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100px;
-}
-
-.handpicked-synergies .handpicked-synergy img {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    border: 2px solid #00ccff;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
 }
 
 /* Character Grid */
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr); /* Horizontal layout */
-    gap: 10px;
-    justify-items: center;
+    grid-template-columns: repeat(17, 1fr); /* This creates 17 columns */
+    grid-template-rows: 1fr 1fr; /* This creates 2 rows */
+    gap: 10px; /* Space between the characters */
+    justify-items: center; /* Centers the items horizontally */
     margin-bottom: 20px;
 }
 
@@ -81,6 +63,7 @@ h1 {
 
 .character.selected img {
     border-color: #00ccff;
+
 }
 
 /* Selected Characters */
@@ -109,64 +92,109 @@ h1 {
     border: 2px solid #00ccff;
 }
 
-/* Synergy Results */
-.synergy-results {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.synergy-results h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.synergy-results .synergy-output p {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-/* Clear Selections Button */
+/* Clear Button */
 .clear-button {
-    background-color: #00ccff;
-    color: #1e1e1e;
-    font-size: 1.2em;
-    padding: 10px 20px;
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #cc3333;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.2s ease;
 }
 
 .clear-button:hover {
-    background-color: #0099cc;
+    background-color: #ff4444;
+}
+/* Synergy Results */
+.synergy-results {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-/* Mode Buttons */
-.mode-button {
+.synergy-output {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.synergy-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #00ccff;
+    padding: 10px;
+    border-radius: 8px;
     background-color: #333;
-    color: #f2f2f2;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
-.mode-button:hover {
-    background-color: #00ccff;
+.synergy-entry img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-.mode-button.selected {
-    background-color: #00ccff;
-    color: #1e1e1e;
+.synergy-entry p {
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
 }
 
-/* Grid and Button Spacing */
-button, .mode-button {
-    margin-top: 10px;
+/* Handpicked Synergy Entries */
+.synergy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.handpicked-synergy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.handpicked-synergy img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.handpicked-synergy p {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .character-grid {
+        grid-template-columns: repeat(8, 1fr); /* smaller grid for mobile */
+    }
+
+    .selected-characters {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .selected-character img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .synergy-entry img {
+        width: 60px;
+        height: 60px;
+    }
 }
