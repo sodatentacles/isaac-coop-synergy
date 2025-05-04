@@ -34,13 +34,15 @@ section {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr); /* 8 columns for each row */
+    grid-template-rows: auto; /* Adjust row height automatically */
     gap: 16px;
-    justify-items: center;
+    justify-items: center; /* Ensures both rows are centered */
     margin-bottom: 20px;
     padding: 10px;
     background-color: #222;
     border-radius: 10px;
+
 }
 
 .character p {
