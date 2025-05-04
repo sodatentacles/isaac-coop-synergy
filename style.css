@@ -5,6 +5,11 @@ body {
     padding: 20px;
     background-color: #1a1a1a;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure content is centered vertically */
 }
 
 .container {
@@ -32,14 +37,14 @@ section {
     font-style: italic;
 }
 
-/* Ensure that the container is properly centered */
+/* Character Grid (Centered) */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
     justify-items: center; /* Centers characters inside grid cells */
-    width: 100%; /* Full width */
+    width: 100%;
     max-width: 1360px; /* Optional max-width */
     margin: 0 auto; /* Center the grid container itself */
     padding: 0 10px; /* Optional padding */
@@ -54,27 +59,12 @@ section {
     margin: 0 auto; /* Ensures the rows are also centered */
 }
 
-/* Optional: this is to ensure that the content doesn’t overflow and breaks correctly on the page */
-body {
+/* General Character Styling */
+.character {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 10px;
-    background-color: #1a1a1a;
-}
-
-.character p {
-    font-size: 12px;
-    color: #fff;
-    text-align: center;
-    word-break: break-word;
-    line-height: 1.2;
-    max-width: 70px;
-    white-space: normal;
-    margin-top: 5px;
+    align-items: center;
+    gap: 5px;
 }
 
 .character img {
@@ -82,9 +72,18 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
-    border: 2px solid transparent;
     background-color: #333;
+}
 
+.character p {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.2;
+    max-width: 70px;
+    white-space: normal;
+    margin-top: 5px;
 }
 
 .char-name {
@@ -145,6 +144,7 @@ body {
 .clear-button:hover {
     background-color: #ff4444;
 }
+
 /* Synergy Results */
 .synergy-results {
     background-color: #2a2a2a;
