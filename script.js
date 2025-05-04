@@ -7,111 +7,133 @@ const characters = [
     "Tainted Forgotten", "Tainted Bethany", "Tainted Jacob"
   ];
   
-  const synergies = [
-    { pair: ["Isaac", "Tainted Cain"], description: "Alpha synergy: Isaac benefits from Tainted Cain's crafting." },
-    { pair: ["Magdalene", "Samson"], description: "Bravo synergy: Magdalene's healing supports Samson's rage." },
-    { pair: ["Blue Baby", "Tainted Blue Baby"], description: "Charlie synergy: Double Blue Babies create poop chaos." },
-    { pair: ["Eve", "Tainted Eve"], description: "Delta synergy: Eve teams balance offense and bloodlust." },
-    { pair: ["Cain", "Tainted Judas"], description: "Echo synergy: High damage pairing for critical runs." }
+  const synergyData = [
+    {
+      team: ["Blue Baby", "Blue Baby", "Blue Baby", "Blue Baby"],
+      text: "1 Fly per Poop per Blue Baby means every room gives 16 flies if there are 4 Blue Babies."
+    },
+    {
+      team: ["Tainted Isaac", "Isaac"],
+      text: "Isaac can reroll items Tainted Isaac has already used, meaning you benefit from 1 item twice."
+    },
+    {
+      team: ["Tainted Magdalene", "Tainted Bethany"],
+      text: "Hearts dropped by enemies via T.Maggie fuel T.Beth's Lemegeton."
+    },
+    {
+      team: ["Alpha", "Bravo"],
+      text: "Alpha synergizes with Bravo for ultimate damage."
+    },
+    {
+      team: ["Alpha", "Charlie"],
+      text: "Charlie helps Alpha generate more resources."
+    }
   ];
   
-  const selectedCharacters = [];
+  const grid = document.getElementById("character-grid");
+  const selectedList = document.getElementById("selected-list");
+  const synergyList = document.getElementById("synergy-list");
+  const clearBtn = document.getElementById("clear-selection");
   
-  function formatCharacterName(name) {
-    return name.toLowerCase().replace(/ /g, "-");
+  let selectedCharacters = [];
+  
+  function createCharacterButton(name) {
+    const btn = document.createElement("button");
+    btn.className = "character";
+    btn.textContent = name;
+    btn.addEventListener("click", () => {
+      if (selectedCharacters.length >= 4) return;
+      selectedCharacters.push(name);
+      updateSelectedList();
+      updateSynergies();
+    });
+    grid.appendChild(btn);
   }
   
-  function updateSelectedCharacters() {
-    const container = document.getElementById("selectedCharacters");
-    container.innerHTML = "";
+  function updateSelectedList() {
+    selectedList.innerHTML = "";
+    document.querySelectorAll(".character").forEach(btn => btn.classList.remove("selected"));
+  
     selectedCharacters.forEach((char, index) => {
-      const div = document.createElement("div");
-      div.classList.add("character", "selected");
-      div.innerHTML = `
-        <img src="images/${formatCharacterName(char)}.png" alt="${char}">
-        <p>${char}</p>
-        <button class="remove-btn" onclick="removeCharacter(${index})">x</button>
-      `;
-      container.appendChild(div);
+      const card = document.createElement("div");
+      card.className = "selected-card";
+      card.textContent = char;
+  
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "×";
+      removeBtn.className = "remove";
+      removeBtn.onclick = () => {
+        selectedCharacters.splice(index, 1);
+        updateSelectedList();
+        updateSynergies();
+      };
+  
+      card.appendChild(removeBtn);
+      selectedList.appendChild(card);
     });
   
-    updateSynergyResults();
+    // Highlight selected buttons (for each match, allow multiples)
+    selectedCharacters.forEach(char => {
+      const buttons = Array.from(document.querySelectorAll(".character"));
+      const match = buttons.find(btn => btn.textContent === char && !btn.classList.contains("selected"));
+      if (match) match.classList.add("selected");
+    });
   }
   
-  function removeCharacter(index) {
-    selectedCharacters.splice(index, 1);
-    updateSelectedCharacters();
-  }
-  
-  function updateSynergyResults() {
-    const output = document.getElementById("synergyOutput");
-    output.innerHTML = "";
-  
+  function updateSynergies() {
+    synergyList.innerHTML = "";
     if (selectedCharacters.length < 2) return;
   
-    const uniquePairs = new Set();
-    const synergyMessages = [];
+    const results = [];
+    const seen = new Set();
   
-    for (let i = 0; i < selectedCharacters.length; i++) {
-      for (let j = i + 1; j < selectedCharacters.length; j++) {
-        const a = selectedCharacters[i];
-        const b = selectedCharacters[j];
-  
-        const combo1 = synergies.find(s =>
-          (s.pair[0] === a && s.pair[1] === b) || (s.pair[0] === b && s.pair[1] === a)
-        );
-  
-        const pairKey = [a, b].sort().join("|");
-        if (!uniquePairs.has(pairKey) && combo1) {
-          uniquePairs.add(pairKey);
-          synergyMessages.push(`<p>${combo1.description}</p>`);
+    synergyData.forEach(syn => {
+      if (syn.team.every(t => selectedCharacters.includes(t))) {
+        const key = syn.team.slice().sort().join(",");
+        if (!seen.has(key)) {
+          seen.add(key);
+          const entry = document.createElement("div");
+          entry.className = "synergy-entry";
+          entry.textContent = syn.text;
+          synergyList.appendChild(entry);
         }
       }
-    }
-  
-    output.innerHTML = synergyMessages.length ? synergyMessages.join("") : "<p>No known synergies between selected characters.</p>";
-  }
-  
-  function clearSelections() {
-    selectedCharacters.length = 0;
-    updateSelectedCharacters();
-  
-    document.querySelectorAll(".character").forEach(btn => {
-      btn.classList.remove("selected");
     });
   }
   
-  function addCharacter(char) {
-    if (selectedCharacters.length >= 4) return;
+  clearBtn.addEventListener("click", () => {
+    selectedCharacters = [];
+    updateSelectedList();
+    updateSynergies();
+  });
   
-    selectedCharacters.push(char);
-    updateSelectedCharacters();
-  }
+  characters.forEach(createCharacterButton);
   
-  window.onload = () => {
-    const row1 = document.getElementById("character-grid-row-1");
-    const row2 = document.getElementById("character-grid-row-2");
+  // Load handpicked synergies (example only)
+  const handpickedList = document.getElementById("handpicked-list");
+  const exampleTeams = [
+    { team: ["Isaac", "Tainted Isaac"], text: "Isaac + Tainted Isaac combo" },
+    { team: ["Samson", "Magdalene", "Tainted Magdalene"], text: "Samson heals well with both versions of Maggie" }
+  ];
   
-    characters.forEach((char, index) => {
-      const charElement = document.createElement("div");
-      charElement.classList.add("character");
-      charElement.innerHTML = `
-        <img src="images/${formatCharacterName(char)}.png" alt="${char}">
-        <p>${char}</p>
-      `;
-      charElement.addEventListener("click", () => {
-        if (selectedCharacters.length < 4) {
-          addCharacter(char);
-        }
-      });
+  exampleTeams.forEach(({ team, text }) => {
+    const entry = document.createElement("div");
+    entry.className = "handpicked-entry";
   
-      if (index < 17) {
-        row1.appendChild(charElement);
-      } else {
-        row2.appendChild(charElement);
-      }
+    const teamDiv = document.createElement("div");
+    teamDiv.className = "team";
+    team.forEach(name => {
+      const mini = document.createElement("div");
+      mini.className = "selected-card";
+      mini.textContent = name;
+      teamDiv.appendChild(mini);
     });
   
-    document.getElementById("clearButton").addEventListener("click", clearSelections);
-  };
+    const desc = document.createElement("div");
+    desc.textContent = text;
+  
+    entry.appendChild(teamDiv);
+    entry.appendChild(desc);
+    handpickedList.appendChild(entry);
+  });
   
