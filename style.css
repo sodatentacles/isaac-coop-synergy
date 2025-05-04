@@ -1,3 +1,4 @@
+/* Basic resets and styling */
 * {
     margin: 0;
     padding: 0;
@@ -9,104 +10,173 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
+    margin: 0;
 }
 
+/* Container for all content */
 .container {
+    width: 100%;
     max-width: 1200px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
 }
 
-.modes {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+/* Title and sections */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.mode-button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+section {
+    margin-bottom: 30px;
 }
 
-.mode-button:hover {
-    background-color: #0056b3;
-}
-
+/* Grid for character selection (4x8 layout) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(8, 1fr); /* 8 columns */
+    grid-template-rows: repeat(4, 1fr);    /* 4 rows */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
 }
 
 .character {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100px; /* Adjusted to fit 8 columns */
+    height: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.character:hover {
-    transform: scale(1.05);
 }
 
 .character img {
-    width: 80px;
-    height: 80px;
-}
-
-.selected-characters {
-    margin-top: 20px;
-}
-
-.selected-characters h3 {
-    text-align: center;
-}
-
-.selected-characters div {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.selected-characters img {
-    width: 50px;
+    width: 50px; /* Adjust image size */
     height: 50px;
-    border-radius: 50%;
+    object-fit: contain;
 }
 
-.clear-button {
-    display: block;
-    margin: 20px auto;
+.character p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Highlight selected characters */
+.character.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.character.selected img {
+    filter: brightness(0) invert(1); /* Invert image colors when selected */
+}
+
+/* Buttons for selecting modes */
+button {
     padding: 10px 20px;
-    background-color: #FF5733;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #003d7a;
+}
+
+/* Button for clearing selections */
+.clear-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .clear-button:hover {
-    background-color: #c84e2f;
+    background-color: #c82333;
 }
 
-#synergyDisplay {
+.clear-button:active {
+    background-color: #9a2e2d;
+}
+
+/* Display area for selected characters */
+.selected-characters {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 20px;
-    text-align: center;
 }
 
-#synergyText {
-    font-size: 18px;
-    font-weight: bold;
+.selected-characters div {
+    text-align: center;
+    margin-right: 10px;
+}
+
+.selected-characters img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.selected-characters p {
+    margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for smaller screens */
+    }
+
+    .character {
+        width: 80px; /* Adjust for smaller screens */
+        height: 80px;
+    }
+
+    .character img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for very small screens */
+    }
+
+    .character {
+        width: 60px; /* Adjust for small screens */
+        height: 60px;
+    }
+
+    .character img {
+        width: 30px;
+        height: 30px;
+    }
 }

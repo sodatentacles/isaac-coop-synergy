@@ -3,44 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binding of Isaac Synergies</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Binding of Isaac Synergy Website</title>
+    <style>
+        /* Basic resets and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for all content */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title and sections */
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        /* Grid for character selection (4x8 layout) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* 8 columns */
+            grid-template-rows: repeat(4, 1fr);    /* 4 rows */
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .character {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100px; /* Adjusted to fit 8 columns */
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .character img {
+            width: 50px; /* Adjust image size */
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .character p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* Highlight selected characters */
+        .character.selected {
+            background-color: #007bff;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        .character.selected img {
+            filter: brightness(0) invert(1); /* Invert image colors when selected */
+        }
+
+        /* Buttons for selecting modes */
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #003d7a;
+        }
+
+        /* Button for clearing selections */
+        .clear-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .clear-button:hover {
+            background-color: #c82333;
+        }
+
+        .clear-button:active {
+            background-color: #9a2e2d;
+        }
+
+        /* Display area for selected characters */
+        .selected-characters {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .selected-characters div {
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .selected-characters img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .selected-characters p {
+            margin-top: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for smaller screens */
+            }
+
+            .character {
+                width: 80px; /* Adjust for smaller screens */
+                height: 80px;
+            }
+
+            .character img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for very small screens */
+            }
+
+            .character {
+                width: 60px; /* Adjust for small screens */
+                height: 60px;
+            }
+
+            .character img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Mode Selection -->
-        <div class="modes">
-            <button id="hardMode" class="mode-button">Hard Mode</button>
-            <button id="greedMode" class="mode-button">Greed Mode</button>
-        </div>
+        <h1>Binding of Isaac Synergy Comparison</h1>
+        
+        <!-- Synergy Mode Selection -->
+        <section>
+            <button id="hardModeButton">Hard Mode</button>
+            <button id="greedModeButton">Greed Mode</button>
+        </section>
 
-        <!-- Character Selection Grid -->
-        <div class="grid">
-            <!-- Each character will have an image and name here -->
-            <!-- Example for 1 character, repeat for all 32 -->
-            <div class="character" data-character="Isaac">
-                <img src="images/isaac.png" alt="Isaac">
-                <p>Isaac</p>
+        <!-- Character Selection Grid (4x8 layout) -->
+        <section>
+            <div class="grid">
+                <div class="character" data-character="Isaac">
+                    <img src="images/isaac.png" alt="Isaac">
+                    <p>Isaac</p>
+                </div>
+                <div class="character" data-character="Magdalene">
+                    <img src="images/magdalene.png" alt="Magdalene">
+                    <p>Magdalene</p>
+                </div>
+                <div class="character" data-character="Cain">
+                    <img src="images/cain.png" alt="Cain">
+                    <p>Cain</p>
+                </div>
+                <div class="character" data-character="Judas">
+                    <img src="images/judas.png" alt="Judas">
+                    <p>Judas</p>
+                </div>
+                <div class="character" data-character="Blue Baby">
+                    <img src="images/blue_baby.png" alt="Blue Baby">
+                    <p>Blue Baby</p>
+                </div>
+                <div class="character" data-character="Eve">
+                    <img src="images/eve.png" alt="Eve">
+                    <p>Eve</p>
+                </div>
+                <div class="character" data-character="Samson">
+                    <img src="images/samson.png" alt="Samson">
+                    <p>Samson</p>
+                </div>
+                <div class="character" data-character="Azazel">
+                    <img src="images/azazel.png" alt="Azazel">
+                    <p>Azazel</p>
+                </div>
+                <div class="character" data-character="Lazarus">
+                    <img src="images/lazarus.png" alt="Lazarus">
+                    <p>Lazarus</p>
+                </div>
+                <div class="character" data-character="Eden">
+                    <img src="images/eden.png" alt="Eden">
+                    <p>Eden</p>
+                </div>
+                <div class="character" data-character="Lost">
+                    <img src="images/lost.png" alt="Lost">
+                    <p>Lost</p>
+                </div>
+                <div class="character" data-character="Lilith">
+                    <img src="images/lilith.png" alt="Lilith">
+                    <p>Lilith</p>
+                </div>
+                <div class="character" data-character="Keeper">
+                    <img src="images/keeper.png" alt="Keeper">
+                    <p>Keeper</p>
+                </div>
+                <div class="character" data-character="Apollyon">
+                    <img src="images/apollyon.png" alt="Apollyon">
+                    <p>Apollyon</p>
+                </div>
+                <div class="character" data-character="Forgotten">
+                    <img src="images/forgotten.png" alt="Forgotten">
+                    <p>Forgotten</p>
+                </div>
+                <div class="character" data-character="Bethany">
+                    <img src="images/bethany.png" alt="Bethany">
+                    <p>Bethany</p>
+                </div>
+                <div class="character" data-character="Jacob and Esau">
+                    <img src="images/jacob_and_esau.png" alt="Jacob and Esau">
+                    <p>Jacob and Esau</p>
+                </div>
+                <div class="character" data-character="Tainted Isaac">
+                    <img src="images/tainted_isaac.png" alt="Tainted Isaac">
+                    <p>Tainted Isaac</p>
+                </div>
+                <div class="character" data-character="Tainted Magdalene">
+                    <img src="images/tainted_magdalene.png" alt="Tainted Magdalene">
+                    <p>Tainted Magdalene</p>
+                </div>
+                <div class="character" data-character="Tainted Cain">
+                    <img src="images/tainted_cain.png" alt="Tainted Cain">
+                    <p>Tainted Cain</p>
+                </div>
+                <div class="character" data-character="Tainted Judas">
+                    <img src="images/tainted_judas.png" alt="Tainted Judas">
+                    <p>Tainted Judas</p>
+                </div>
+                <div class="character" data-character="Tainted Blue Baby">
+                    <img src="images/tainted_blue_baby.png" alt="Tainted Blue Baby">
+                    <p>Tainted Blue Baby</p>
+                </div>
+                <div class="character" data-character="Tainted Eve">
+                    <img src="images/tainted_eve.png" alt="Tainted Eve">
+                    <p>Tainted Eve</p>
+                </div>
+                <div class="character" data-character="Tainted Samson">
+                    <img src="images/tainted_samson.png" alt="Tainted Samson">
+                    <p>Tainted Samson</p>
+                </div>
+                <div class="character" data-character="Tainted Azazel">
+                    <img src="images/tainted_azazel.png" alt="Tainted Azazel">
+                    <p>Tainted Azazel</p>
+                </div>
+                <div class="character" data-character="Tainted Lazarus">
+                    <img src="images/tainted_lazarus.png" alt="Tainted Lazarus">
+                    <p>Tainted Lazarus</p>
+                </div>
+                <div class="character" data-character="Tainted Eden">
+                    <img src="images/tainted_eden.png" alt="Tainted Eden">
+                    <p>Tainted Eden</p>
+                </div>
+                <div class="character" data-character="Tainted Lost">
+                    <img src="images/tainted_lost.png" alt="Tainted Lost">
+                    <p>Tainted Lost</p>
+                </div>
+                <div class="character" data-character="Tainted Lilith">
+                    <img src="images/tainted_lilith.png" alt="Tainted Lilith">
+                    <p>Tainted Lilith</p>
+                </div>
+                <div class="character" data-character="Tainted Keeper">
+                    <img src="images/tainted_keeper.png" alt="Tainted Keeper">
+                    <p>Tainted Keeper</p>
+                </div>
+                <div class="character" data-character="Tainted Apollyon">
+                    <img src="images/tainted_apollyon.png" alt="Tainted Apollyon">
+                    <p>Tainted Apollyon</p>
+                </div>
+                <div class="character" data-character="Tainted Forgotten">
+                    <img src="images/tainted_forgotten.png" alt="Tainted Forgotten">
+                    <p>Tainted Forgotten</p>
+                </div>
+                <div class="character" data-character="Tainted Bethany">
+                    <img src="images/tainted_bethany.png" alt="Tainted Bethany">
+                    <p>Tainted Bethany</p>
+                </div>
+                <div class="character" data-character="Tainted Jacob">
+                    <img src="images/tainted_jacob.png" alt="Tainted Jacob">
+                    <p>Tainted Jacob</p>
+                </div>
             </div>
-            <!-- Repeat for all characters -->
-        </div>
+        </section>
 
-        <!-- Selected Characters Display -->
-        <div class="selected-characters">
-            <h3>Selected Characters</h3>
-            <div id="selectedList"></div>
-        </div>
-
-        <!-- Clear Selections Button -->
-        <button id="clearButton" class="clear-button">Clear Selections</button>
-
-        <!-- Synergy Display -->
-        <div id="synergyDisplay">
-            <h3>Synergy Description</h3>
-            <p id="synergyText">Select characters to see synergies.</p>
-        </div>
+        <!-- Button to clear selections -->
+        <section>
+            <button class="clear-button">Clear Selections</button>
+        </section>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript to handle character selection
+        document.querySelectorAll('.character').forEach(character => {
+            character.addEventListener('click', () => {
+                character.classList.toggle('selected');
+            });
+        });
+
+        // JavaScript to clear selections
+        document.querySelector('.clear-button').addEventListener('click', () => {
+            document.querySelectorAll('.character').forEach(character => {
+                character.classList.remove('selected');
+            });
+        });
+    </script>
 </body>
 </html>
