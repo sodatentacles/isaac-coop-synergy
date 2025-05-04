@@ -32,27 +32,39 @@ section {
     font-style: italic;
 }
 
+/* Ensure that the container is properly centered */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
-    justify-items: center; /* Centers characters within their grid cells */
-    width: 100%; /* Take up the full width of the parent container */
-    max-width: 1200px; /* Optional: Set a max width to prevent overflow */
-    margin: 0 auto; /* Centers the grid container */
-    padding: 10px;
+    justify-items: center; /* Centers characters inside grid cells */
+    width: 100%; /* Full width */
+    max-width: 1360px; /* Optional max-width */
+    margin: 0 auto; /* Center the grid container itself */
+    padding: 0 10px; /* Optional padding */
 }
 
 .character-grid-row {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     gap: 16px;
-    justify-items: center; /* Centers items in the grid cells */
-    width: 100%; /* Ensures full width for each row */
-    margin: 0 auto; /* Centers the row inside its container */
+    justify-items: center; /* Centers items within the grid */
+    width: 100%; /* Ensure it takes up the full available space */
+    margin: 0 auto; /* Ensures the rows are also centered */
 }
 
+/* Optional: this is to ensure that the content doesn’t overflow and breaks correctly on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
 
 .character p {
     font-size: 12px;
