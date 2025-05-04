@@ -34,7 +34,7 @@ section {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8 columns for each row */
+    grid-template-columns: repeat(17, 1fr); /* 8 columns for each row */
     grid-template-rows: auto; /* Adjust row height automatically */
     gap: 16px;
     justify-items: center; /* Ensures both rows are centered */
