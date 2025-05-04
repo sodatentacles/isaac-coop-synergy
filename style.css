@@ -34,14 +34,23 @@ section {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 8 columns for each row */
-    grid-template-rows: auto; /* Adjust row height automatically */
+    grid-template-columns: repeat(17, 1fr); /* 17 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
-    justify-items: center; /* Ensures both rows are centered */
+    justify-items: center; /* Ensures characters are centered in their cells */
     margin-bottom: 20px;
     padding: 10px;
     background-color: #222;
     border-radius: 10px;
+    max-width: 100%; /* Ensures the grid doesn't overflow */
+}
+
+.character-grid-row {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr); /* 17 columns */
+    gap: 16px;
+    justify-items: center; /* Centers items in the grid cells */
+    width: 100%;
 
 }
 
