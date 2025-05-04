@@ -5,76 +5,49 @@ body {
     padding: 20px;
     background-color: #1a1a1a;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure content is centered vertically */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+/* Container */
 .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 10px;
+    width: 100%;
 }
 
-h1, h2 {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-/* Section Titles */
-section {
-    margin-bottom: 30px;
-}
-
-/* Handpicked Synergies */
-.handpicked-synergies {
-    background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-style: italic;
-}
-
-/* Ensure that the container is properly centered */
+/* Character Grid (Fixed width) */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(17, 1fr); /* 17 columns */
     grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 16px;
     justify-items: center; /* Centers characters inside grid cells */
-    width: 100%; /* Full width */
-    max-width: 1360px; /* Optional max-width */
-    margin: 0 auto; /* Center the grid container itself */
+    width: 1360px; /* Fixed width to match exact column count */
+    margin: 0 auto; /* Ensure grid is centered */
     padding: 0 10px; /* Optional padding */
+    overflow: hidden; /* Hide anything that overflows the grid */
 }
 
+/* Ensure that the rows are also centered */
 .character-grid-row {
-    display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 17 columns */
-    gap: 16px;
-    justify-items: center; /* Centers items within the grid */
-    width: 100%; /* Ensure it takes up the full available space */
-    margin: 0 auto; /* Ensures the rows are also centered */
-}
-
-/* Optional: this is to ensure that the content doesn’t overflow and breaks correctly on the page */
-body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 10px;
-    background-color: #1a1a1a;
+    justify-content: center; /* Centers the rows within the grid */
+    width: 100%;
+    gap: 16px;
 }
 
-.character p {
-    font-size: 12px;
-    color: #fff;
-    text-align: center;
-    word-break: break-word;
-    line-height: 1.2;
-    max-width: 70px;
-    white-space: normal;
-    margin-top: 5px;
+/* Character styling */
+.character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 .character img {
@@ -82,8 +55,18 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
-    border: 2px solid transparent;
     background-color: #333;
+}
+
+.character p {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.2;
+    max-width: 70px;
+    white-space: normal;
+    margin-top: 5px;
 }
 
 .char-name {
@@ -100,12 +83,6 @@ body {
 
 .character.selected img {
     border-color: #00ccff;
-}
-
-/* Glowing effect for characters with synergy */
-.character.glowing {
-    border: 2px solid #00ccff;  /* Optional: add a glowing border */
-    box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff; /* Glow effect */
 }
 
 /* Selected Characters */
