@@ -1,163 +1,111 @@
-/* Reset default styles */
-* {
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1e1e1e;
+    color: #ffffff;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-body, html {
-    height: 100%;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-}
-
-h1, h2 {
-    margin-bottom: 1rem;
-}
-
-.mode-select {
-    margin-bottom: 1rem;
-}
-
-.mode-button {
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    background-color: #333;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.mode-button.active {
-    background-color: #007bff;
-}
-
-.character-grid {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.character-grid-row {
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+  
+  #handpickedSynergies {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #character-grid-row-1,
+  #character-grid-row-2 {
     display: grid;
     grid-template-columns: repeat(17, 1fr);
-    gap: 0.5rem;
-    justify-content: center;
-}
-
-.character {
-    border: 2px solid #444;
-    background-color: #222;
-    border-radius: 10px;
-    padding: 0.25rem;
+    gap: 5px;
+    margin: 10px 0;
+  }
+  
+  .character {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.character img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.character p {
-    margin-top: 0.25rem;
+    transition: background-color 0.2s;
+  }
+  
+  .character:hover {
+    background-color: #555;
+  }
+  
+  .character.selected {
+    background-color: #008cff;
+  }
+  
+  .character img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .character p {
+    margin: 5px 0 0 0;
     font-size: 0.8rem;
-}
-
-.character:hover,
-.character.selected {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.selected-characters-section,
-.synergy-results,
-.handpicked-synergies {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-.selected-characters {
+  }
+  
+  #selectedCharacters {
     display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.selected-characters .character-thumbnail {
-    position: relative;
-}
-
-.character-thumbnail img {
-    width: 60px;
-    height: 60px;
-    border-radius: 6px;
-    border: 2px solid #555;
-}
-
-.character-thumbnail .remove-btn {
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    max-width: 90vw;
+  }
+  
+  .remove-btn {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: 2px;
+    right: 2px;
     background: red;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     font-size: 12px;
     cursor: pointer;
-    line-height: 1;
-}
-
-.clear-button {
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
-    background-color: #990000;
-    border: none;
+  }
+  
+  button#clearButton {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #ff4c4c;
     color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.synergy-output p {
-    margin-bottom: 0.5rem;
-    background-color: #333;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.handpicked-synergies .handpicked-synergy {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #222;
-    padding: 0.5rem;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-}
-
-.handpicked-synergy img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 4px;
-}
+    font-size: 1rem;
+  }
+  
+  #synergyOutput {
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    text-align: left;
+  }
+  
+  #synergyOutput p {
+    margin: 5px 0;
+  }
+  

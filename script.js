@@ -7,117 +7,111 @@ const characters = [
     "Tainted Forgotten", "Tainted Bethany", "Tainted Jacob"
   ];
   
-  const characterGridRow1 = document.getElementById("character-grid-row-1");
-  const characterGridRow2 = document.getElementById("character-grid-row-2");
-  const selectedCharactersDiv = document.getElementById("selectedCharacters");
-  const synergyOutput = document.getElementById("synergyOutput");
-  const modeButtons = document.querySelectorAll('.mode-button');
-  const clearButton = document.getElementById("clearButton");
+  const synergies = [
+    { pair: ["Isaac", "Tainted Cain"], description: "Alpha synergy: Isaac benefits from Tainted Cain's crafting." },
+    { pair: ["Magdalene", "Samson"], description: "Bravo synergy: Magdalene's healing supports Samson's rage." },
+    { pair: ["Blue Baby", "Tainted Blue Baby"], description: "Charlie synergy: Double Blue Babies create poop chaos." },
+    { pair: ["Eve", "Tainted Eve"], description: "Delta synergy: Eve teams balance offense and bloodlust." },
+    { pair: ["Cain", "Tainted Judas"], description: "Echo synergy: High damage pairing for critical runs." }
+  ];
   
-  let selectedCharacters = [];
-  let currentMode = "Hard";
+  const selectedCharacters = [];
   
-  function createCharacterButton(character) {
-    const charBtn = document.createElement("div");
-    charBtn.className = "character";
-    charBtn.innerHTML = `<img src="images/${character}.png" alt="${character}"><p>${character}</p>`;
-    charBtn.addEventListener("click", () => {
-      if (selectedCharacters.length < 4) {
-        selectedCharacters.push(character);
-        updateSelectedDisplay();
-        updateSynergies();
-      }
-    });
-    return charBtn;
+  function formatCharacterName(name) {
+    return name.toLowerCase().replace(/ /g, "-");
   }
   
-  function updateSelectedDisplay() {
-    selectedCharactersDiv.innerHTML = "";
-    selectedCharacters.forEach((character, index) => {
-      const thumbDiv = document.createElement("div");
-      thumbDiv.className = "character-thumbnail";
-      thumbDiv.innerHTML = `
-        <img src="images/${character}.png" alt="${character}">
+  function updateSelectedCharacters() {
+    const container = document.getElementById("selectedCharacters");
+    container.innerHTML = "";
+    selectedCharacters.forEach((char, index) => {
+      const div = document.createElement("div");
+      div.classList.add("character", "selected");
+      div.innerHTML = `
+        <img src="images/${formatCharacterName(char)}.png" alt="${char}">
+        <p>${char}</p>
         <button class="remove-btn" onclick="removeCharacter(${index})">x</button>
       `;
-      selectedCharactersDiv.appendChild(thumbDiv);
+      container.appendChild(div);
     });
   
-    const allButtons = document.querySelectorAll(".character");
-    allButtons.forEach(btn => btn.classList.remove("selected"));
-    selectedCharacters.forEach(char => {
-      allButtons.forEach(btn => {
-        if (btn.innerText === char) btn.classList.add("selected");
-      });
-    });
+    updateSynergyResults();
   }
   
   function removeCharacter(index) {
     selectedCharacters.splice(index, 1);
-    updateSelectedDisplay();
-    updateSynergies();
+    updateSelectedCharacters();
   }
   
-  function updateSynergies() {
-    synergyOutput.innerHTML = "";
+  function updateSynergyResults() {
+    const output = document.getElementById("synergyOutput");
+    output.innerHTML = "";
+  
     if (selectedCharacters.length < 2) return;
   
-    const messages = [];
+    const uniquePairs = new Set();
+    const synergyMessages = [];
+  
     for (let i = 0; i < selectedCharacters.length; i++) {
       for (let j = i + 1; j < selectedCharacters.length; j++) {
-        const pair = [selectedCharacters[i], selectedCharacters[j]];
-        const message = getSynergyMessage(pair);
-        if (message) messages.push(message);
+        const a = selectedCharacters[i];
+        const b = selectedCharacters[j];
+  
+        const combo1 = synergies.find(s =>
+          (s.pair[0] === a && s.pair[1] === b) || (s.pair[0] === b && s.pair[1] === a)
+        );
+  
+        const pairKey = [a, b].sort().join("|");
+        if (!uniquePairs.has(pairKey) && combo1) {
+          uniquePairs.add(pairKey);
+          synergyMessages.push(`<p>${combo1.description}</p>`);
+        }
       }
     }
   
-    messages.forEach(msg => {
-      const p = document.createElement("p");
-      p.textContent = msg;
-      synergyOutput.appendChild(p);
+    output.innerHTML = synergyMessages.length ? synergyMessages.join("") : "<p>No known synergies between selected characters.</p>";
+  }
+  
+  function clearSelections() {
+    selectedCharacters.length = 0;
+    updateSelectedCharacters();
+  
+    document.querySelectorAll(".character").forEach(btn => {
+      btn.classList.remove("selected");
     });
   }
   
-  function getSynergyMessage(pair) {
-    const [a, b] = pair;
-    const pairs = {
-      "Samson-Tainted Magdalene": "Samson benefits from Tainted Magdalene's health drops.",
-      "Samson-Magdalene": "Magdalene can heal Samson's health loss from rage.",
-      "Azazel-Tainted Judas": "Azazel covers Tainted Judas during soul form.",
-      "Isaac-Tainted Isaac": "Double item rerolls make them a dangerous combo.",
-      "Lost-Tainted Lost": "Glass cannon team, high risk, high reward."
-    };
-    const key1 = `${a}-${b}`;
-    const key2 = `${b}-${a}`;
-    return pairs[key1] || pairs[key2] || null;
+  function addCharacter(char) {
+    if (selectedCharacters.length >= 4) return;
+  
+    selectedCharacters.push(char);
+    updateSelectedCharacters();
   }
   
-  function buildCharacterGrid() {
-    for (let i = 0; i < 17; i++) {
-      characterGridRow1.appendChild(createCharacterButton(characters[i]));
-    }
-    for (let i = 17; i < 34; i++) {
-      characterGridRow2.appendChild(createCharacterButton(characters[i]));
-    }
-  }
+  window.onload = () => {
+    const row1 = document.getElementById("character-grid-row-1");
+    const row2 = document.getElementById("character-grid-row-2");
   
-  function updateMode(newMode) {
-    currentMode = newMode;
-    modeButtons.forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.mode-button[data-mode='${newMode}']`).classList.add('active');
-    updateSynergies();
-  }
+    characters.forEach((char, index) => {
+      const charElement = document.createElement("div");
+      charElement.classList.add("character");
+      charElement.innerHTML = `
+        <img src="images/${formatCharacterName(char)}.png" alt="${char}">
+        <p>${char}</p>
+      `;
+      charElement.addEventListener("click", () => {
+        if (selectedCharacters.length < 4) {
+          addCharacter(char);
+        }
+      });
   
-  clearButton.addEventListener("click", () => {
-    selectedCharacters = [];
-    updateSelectedDisplay();
-    updateSynergies();
-  });
+      if (index < 17) {
+        row1.appendChild(charElement);
+      } else {
+        row2.appendChild(charElement);
+      }
+    });
   
-  modeButtons.forEach(btn => {
-    btn.addEventListener("click", () => updateMode(btn.dataset.mode));
-  });
-  
-  buildCharacterGrid();
-  updateMode("Hard");
+    document.getElementById("clearButton").addEventListener("click", clearSelections);
+  };
   
