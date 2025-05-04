@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Isaac Coop Synergy</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binding of Isaac Synergies</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Binding of Isaac Synergies</h1>
+    <div class="container">
+        <!-- Mode Selection -->
+        <div class="modes">
+            <button id="hardMode" class="mode-button">Hard Mode</button>
+            <button id="greedMode" class="mode-button">Greed Mode</button>
+        </div>
 
-  <label for="mode">Choose Mode:</label>
-  <select id="mode" onchange="updateSynergies()">
-    <option value="hard">Hard Mode</option>
-    <option value="greed">Greed Mode</option>
-  </select>
+        <!-- Character Selection Grid -->
+        <div class="grid">
+            <!-- Each character will have an image and name here -->
+            <!-- Example for 1 character, repeat for all 32 -->
+            <div class="character" data-character="Isaac">
+                <img src="images/isaac.png" alt="Isaac">
+                <p>Isaac</p>
+            </div>
+            <!-- Repeat for all characters -->
+        </div>
 
-  <label for="characters">Select 2–4 Characters (duplicates allowed):</label>
-  <div id="character-buttons"></div>
+        <!-- Selected Characters Display -->
+        <div class="selected-characters">
+            <h3>Selected Characters</h3>
+            <div id="selectedList"></div>
+        </div>
 
-  <button onclick="updateSynergies()">Show Synergy</button>
+        <!-- Clear Selections Button -->
+        <button id="clearButton" class="clear-button">Clear Selections</button>
 
-  <div id="synergy-result"></div>
+        <!-- Synergy Display -->
+        <div id="synergyDisplay">
+            <h3>Synergy Description</h3>
+            <p id="synergyText">Select characters to see synergies.</p>
+        </div>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

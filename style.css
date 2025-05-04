@@ -1,31 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
     padding: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  label {
-    font-weight: bold;
-    display: block;
-    margin-top: 20px;
-  }
-  
-  #character-buttons button {
-    margin: 5px;
-    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mode-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-  }
-  
-  #synergy-result {
+}
+
+.mode-button:hover {
+    background-color: #0056b3;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.character:hover {
+    transform: scale(1.05);
+}
+
+.character img {
+    width: 80px;
+    height: 80px;
+}
+
+.selected-characters {
     margin-top: 20px;
+}
+
+.selected-characters h3 {
+    text-align: center;
+}
+
+.selected-characters div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.selected-characters img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.clear-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background-color: #c84e2f;
+}
+
+#synergyDisplay {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#synergyText {
     font-size: 18px;
-    background: #f0f0f0;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  
+    font-weight: bold;
+}
