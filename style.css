@@ -1,234 +1,169 @@
-/* General Reset and Base Styling */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #1a1a1a;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 0;
+    background-color: #111;
+    color: #f5f5f5;
 }
 
-/* Ensure that the container is centered */
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 10px;
-}
-
-/* Section Titles */
-h1, h2 {
+    padding: 20px;
     text-align: center;
-    margin-bottom: 15px;
 }
 
-/* Section Titles */
-section {
-    margin-bottom: 30px;
+h1, h2 {
+    color: #ffdd57;
+    margin-bottom: 15px;
 }
 
 /* Handpicked Synergies */
 .handpicked-synergies {
-    background-color: #2a2a2a;
-    padding: 15px;
+    margin-top: 30px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    font-style: italic;
 }
 
-/* Character Grid */
+.handpicked-synergies p {
+    font-style: italic;
+    color: #ccc;
+}
+
+/* Character Selection */
+.character-select-section {
+    margin-top: 30px;
+}
+
+.character-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 17 columns */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    gap: 16px;
-    justify-items: center; /* Centers characters inside grid cells */
-    width: 100%; /* Full width */
-    max-width: 1360px; /* Optional max-width */
-    margin: 0 auto; /* Center the grid container itself */
-    padding: 0 10px; /* Optional padding */
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* Character Grid Row */
-.character-grid-row {
-    display: grid;
-    grid-template-columns: repeat(17, 1fr); /* 17 columns */
-    gap: 16px;
-    justify-items: center; /* Centers items within the grid */
-    width: 100%; /* Ensure it takes up the full available space */
-    margin: 0 auto; /* Ensures the rows are also centered */
-}
-
-/* Character Styling */
-.character p {
-    font-size: 12px;
-    color: #fff;
+.character {
+    background-color: #222;
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 8px;
     text-align: center;
-    word-break: break-word;
-    line-height: 1.2;
-    max-width: 70px;
-    white-space: normal;
-    margin-top: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.character:hover {
+    transform: scale(1.05);
+    border-color: #ffdd57;
 }
 
 .character img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    background-color: #333;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
 }
 
-.char-name {
+.character p {
+    margin: 5px 0 0;
     font-size: 12px;
-    color: #fff;
-    line-height: 1.2;
-    text-align: center;
-    word-break: break-word;
-}
-
-/* Hover Effect */
-.character:hover {
-    transform: scale(1.05);
-}
-
-/* Glowing Effect */
-.character.glowing {
-    animation: glowing 1.5s ease-in-out infinite;
-}
-
-@keyframes glowing {
-    0% {
-        box-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 15px #00ccff;
-    }
-    50% {
-        box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
-    }
-    100% {
-        box-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 15px #00ccff;
-    }
+    line-height: 1.2em;
 }
 
 /* Selected Characters */
+.selected-characters-section {
+    margin-top: 30px;
+}
+
 .selected-characters {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
-    background-color: #2a2a2a;
-    border-radius: 8px;
-    min-height: 70px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* Clear Button */
-.clear-button {
-    display: block;
-    margin: 10px auto;
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #cc3333;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.clear-button:hover {
-    background-color: #ff4444;
+.selected-characters .character {
+    border-color: #ffdd57;
 }
 
 /* Synergy Results */
 .synergy-results {
-    background-color: #2a2a2a;
+    margin-top: 40px;
+    background-color: #1e1e1e;
     padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
 }
 
 .synergy-output {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-}
-
-.synergy-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid #00ccff;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #333;
-}
-
-.synergy-entry img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.synergy-entry p {
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 16px;
     color: #fff;
-    font-weight: bold;
+    white-space: pre-line;
 }
 
-/* Handpicked Synergy Entries */
-.synergy-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-
-.handpicked-synergy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #333;
-    border-radius: 8px;
-    padding: 10px;
-}
-
-.handpicked-synergy img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.handpicked-synergy p {
+/* Clear Button */
+.clear-button {
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff5757;
     color: #fff;
-    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+    background-color: #ff1e1e;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .character-grid {
-        grid-template-columns: repeat(8, 1fr); /* smaller grid for mobile */
-    }
-
-    .selected-characters {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .selected-character img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .synergy-entry img {
-        width: 60px;
-        height: 60px;
+        grid-template-columns: repeat(6, 1fr);
     }
 }
+
+@media (max-width: 768px) {
+    .character-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .character img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .clear-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Temporarily removed glowing effect due to compatibility issues */
