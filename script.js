@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             characterDiv.classList.add('selected-character');
             characterDiv.setAttribute('data-character', character);
             const characterImage = document.createElement('img');
-            characterImage.src = `images/${character.toLowerCase().replace(' ', '_')}.png`;
+            characterImage.src = `images/${character.toLowerCase().replace(/\s+/g, '_')}.png`;
             characterDiv.appendChild(characterImage);
             selectedCharactersContainer.appendChild(characterDiv);
         });
