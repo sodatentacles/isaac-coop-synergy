@@ -128,35 +128,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-// Initialize slot click events (for removing characters)
-slotElements.forEach((slotElement, index) => {
-    slotElement.addEventListener('click', () => {
-        if (index < selectedCharacters.length) {
-            // Remove character from the selected list
-            selectedCharacters.splice(index, 1);
-            
-            // Shift all characters after this slot
-            for (let i = index; i < maxSelectedCharacters - 1; i++) {
-                if (i < selectedCharacters.length) {
-                    updateSlot(i, selectedCharacters[i]);
-                } else {
-                    clearSlot(i);
+    // Initialize slot click events (for removing characters)
+    slotElements.forEach((slotElement, index) => {
+        slotElement.addEventListener('click', () => {
+            if (index < selectedCharacters.length) {
+                // Remove character from the selected list
+                selectedCharacters.splice(index, 1);
+                
+                // Shift all characters after this slot
+                for (let i = index; i < maxSelectedCharacters - 1; i++) {
+                    if (i < selectedCharacters.length) {
+                        updateSlot(i, selectedCharacters[i]);
+                    } else {
+                        clearSlot(i);
+                    }
                 }
+                
+                // Clear the last slot if we had max characters
+                if (selectedCharacters.length < maxSelectedCharacters) {
+                    clearSlot(selectedCharacters.length);
+                }
+                
+                // Update synergies
+                updateSynergies();
+                
+                // Update character interactions
+                updateCharacterInteractions();
             }
-            
-            // Clear the last slot if we had max characters
-            if (selectedCharacters.length < maxSelectedCharacters) {
-                clearSlot(selectedCharacters.length);
-            }
-            
-            // Update synergies
-            updateSynergies();
-            
-            // Update character interactions
-            updateCharacterInteractions();
-        }
+        });
     });
-});
 
     // Clear button functionality
     clearButton.addEventListener('click', () => {
@@ -363,4 +363,4 @@ slotElements.forEach((slotElement, index) => {
             element.classList.remove('positive', 'negative');
         });
     }
-                
+});

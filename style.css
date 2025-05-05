@@ -7,24 +7,13 @@
 }
 
 body {
-    background-color: #f0e6d2;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCwwLDUwLDUwbTAsMCwwLTUwTDAsNTAiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+');
     padding: 20px;
     color: #333;
     line-height: 1.6;
     position: relative;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJub25lIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsIDAsIDAsIDAuMDgpIiBzdHJva2Utd2lkdGg9IjEiPjxwYXRoIGQ9Ik0yNSwxNSBMMTUsMjUgTDI1LDM1IEwzNSwyNSBaIi8+PHBhdGggZD0iTTI1LDQ1IEwxNSw1NSBMMjUsNjUgTDM1LDU1IFoiLz48cGF0aCBkPSJNNzUsMTUgTDY1LDI1IEw3NSwzNSBMODUsMjUgWiIvPjxwYXRoIGQ9Ik03NSw0NSBMNDY1LDU1IEw3NSw2NSBMODU1LDU1IFoiLz48L2c+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
-    opacity: 0.7;
+    background: url('images/background.png') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {
@@ -85,6 +74,8 @@ header {
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
+    width: 60px;
+    height: 60px;
 }
 
 .character:hover {
@@ -101,14 +92,15 @@ header {
 
 .character span {
     display: block;
-    font-size: 0.7em;
+    font-size: 0.6em;
     padding: 2px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     color: white;
     text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
+    text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black;
 }
 
 .character.positive::after {
@@ -161,6 +153,7 @@ header {
     background-color: #f5e9d7;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .slot img {
@@ -184,12 +177,13 @@ header {
     display: block;
     font-size: 0.7em;
     padding: 2px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     color: white;
     text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
+    text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black;
 }
 
 /* Clear Button */
@@ -361,19 +355,6 @@ header {
     .team-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
-}
-
-/* Background Images and Decorations */
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url('https://wallpapercave.com/wp/wp2264796.png');
-    opacity: 0.5;
 }
 
 /* Animation Effects */
