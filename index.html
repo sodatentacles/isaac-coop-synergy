@@ -3,74 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaac Coop Synergy Tool</title>
+    <title>The Binding of Isaac REPENTANCE+ Co-op Synergy Tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Isaac Coop Synergy Tool</h1>
-
-        <!-- Character Grid -->
-        <section class="character-grid">
-                <div class="character" data-character="Isaac"><img src="images/isaac.png"><p>Isaac</p></div>
-                <div class="character" data-character="Magdalene"><img src="images/magdalene.png"><p>Magdalene</p></div>
-                <div class="character" data-character="Cain"><img src="images/cain.png"><p>Cain</p></div>
-                <div class="character" data-character="Judas"><img src="images/judas.png"><p>Judas</p></div>
-                <div class="character" data-character="Blue Baby"><img src="images/blue_baby.png"><p>Blue Baby</p></div>
-                <div class="character" data-character="Eve"><img src="images/eve.png"><p>Eve</p></div>
-                <div class="character" data-character="Samson"><img src="images/samson.png"><p>Samson</p></div>
-                <div class="character" data-character="Azazel"><img src="images/azazel.png"><p>Azazel</p></div>
-                <div class="character" data-character="Lazarus"><img src="images/lazarus.png"><p>Lazarus</p></div>
-                <div class="character" data-character="Eden"><img src="images/eden.png"><p>Eden</p></div>
-                <div class="character" data-character="Lost"><img src="images/lost.png"><p>Lost</p></div>
-                <div class="character" data-character="Lilith"><img src="images/lilith.png"><p>Lilith</p></div>
-                <div class="character" data-character="Keeper"><img src="images/keeper.png"><p>Keeper</p></div>
-                <div class="character" data-character="Apollyon"><img src="images/apollyon.png"><p>Apollyon</p></div>
-                <div class="character" data-character="Forgotten"><img src="images/forgotten.png"><p>Forgotten</p></div>
-                <div class="character" data-character="Bethany"><img src="images/bethany.png"><p>Bethany</p></div>
-                <div class="character" data-character="Jacob and Esau"><img src="images/jacob_and_esau.png"><p>Jacob<br>and<br>Esau</p></div>
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="The Binding of Isaac REPENTANCE+ Co-op Synergy Tool">
             </div>
-            <div class="character-grid-row">
-                <div class="character" data-character="Tainted Isaac"><img src="images/tainted_isaac.png"><p>Tainted<br>Isaac</p></div>
-                <div class="character" data-character="Tainted Magdalene"><img src="images/tainted_magdalene.png"><p>Tainted<br>Magdalene</p></div>
-                <div class="character" data-character="Tainted Cain"><img src="images/tainted_cain.png"><p>Tainted<br>Cain</p></div>
-                <div class="character" data-character="Tainted Judas"><img src="images/tainted_judas.png"><p>Tainted<br>Judas</p></div>
-                <div class="character" data-character="Tainted Blue Baby"><img src="images/tainted_blue_baby.png"><p>Tainted<br>Blue<br>Baby</p></div>
-                <div class="character" data-character="Tainted Eve"><img src="images/tainted_eve.png"><p>Tainted<br>Eve</p></div>
-                <div class="character" data-character="Tainted Samson"><img src="images/tainted_samson.png"><p>Tainted<br>Samson</p></div>
-                <div class="character" data-character="Tainted Azazel"><img src="images/tainted_azazel.png"><p>Tainted<br>Azazel</p></div>
-                <div class="character" data-character="Tainted Lazarus"><img src="images/tainted_lazarus.png"><p>Tainted<br>Lazarus</p></div>
-                <div class="character" data-character="Tainted Eden"><img src="images/tainted_eden.png"><p>Tainted<br>Eden</p></div>
-                <div class="character" data-character="Tainted Lost"><img src="images/tainted_lost.png"><p>Tainted<br>Lost</p></div>
-                <div class="character" data-character="Tainted Lilith"><img src="images/tainted_lilith.png"><p>Tainted<br>Lilith</p></div>
-                <div class="character" data-character="Tainted Keeper"><img src="images/tainted_keeper.png"><p>Tainted<br>Keeper</p></div>
-                <div class="character" data-character="Tainted Apollyon"><img src="images/tainted_apollyon.png"><p>Tainted Apollyon</p></div>
-                <div class="character" data-character="Tainted Forgotten"><img src="images/tainted_forgotten.png"><p>Tainted<br>Forgotten</p></div>
-                <div class="character" data-character="Tainted Bethany"><img src="images/tainted_bethany.png"><p>Tainted<br>Bethany</p></div>
-                <div class="character" data-character="Tainted Jacob"><img src="images/tainted_jacob.png"><p>Tainted<br>Jacob</p></div>
-            </div>
-        </section>
+        </header>
 
-        <!-- Selected Characters Section -->
-        <div class="selected-characters-section">
-            <h2>Selected Characters</h2>
-            <div class="selected-characters"></div>
-        </div>
+        <main>
+            <section class="character-select">
+                <h2>Character Select</h2>
+                <div class="character-grid">
+                    <!-- Regular Characters -->
+                    <div class="character" data-character="isaac"><img src="images/isaac.png" alt="Isaac"><span>ISAAC</span></div>
+                    <div class="character" data-character="magdalene"><img src="images/magdalene.png" alt="Magdalene"><span>MAGDALENE</span></div>
+                    <div class="character" data-character="cain"><img src="images/cain.png" alt="Cain"><span>CAIN</span></div>
+                    <div class="character" data-character="judas"><img src="images/judas.png" alt="Judas"><span>JUDAS</span></div>
+                    <div class="character" data-character="blue_baby"><img src="images/blue_baby.png" alt="Blue Baby"><span>???</span></div>
+                    <div class="character" data-character="eve"><img src="images/eve.png" alt="Eve"><span>EVE</span></div>
+                    <div class="character" data-character="samson"><img src="images/samson.png" alt="Samson"><span>SAMSON</span></div>
+                    <div class="character" data-character="azazel"><img src="images/azazel.png" alt="Azazel"><span>AZAZEL</span></div>
+                    <div class="character" data-character="lazarus"><img src="images/lazarus.png" alt="Lazarus"><span>LAZARUS</span></div>
+                    <div class="character" data-character="eden"><img src="images/eden.png" alt="Eden"><span>EDEN</span></div>
+                    <div class="character" data-character="lost"><img src="images/lost.png" alt="Lost"><span>LOST</span></div>
+                    <div class="character" data-character="lilith"><img src="images/lilith.png" alt="Lilith"><span>LILITH</span></div>
+                    <div class="character" data-character="keeper"><img src="images/keeper.png" alt="Keeper"><span>KEEPER</span></div>
+                    <div class="character" data-character="apollyon"><img src="images/apollyon.png" alt="Apollyon"><span>APOLLYON</span></div>
+                    <div class="character" data-character="forgotten"><img src="images/forgotten.png" alt="Forgotten"><span>FORGOTTEN</span></div>
+                    <div class="character" data-character="bethany"><img src="images/bethany.png" alt="Bethany"><span>BETHANY</span></div>
+                    <div class="character" data-character="jacob_esau"><img src="images/jacob_esau.png" alt="Jacob and Esau"><span>JACOB & ESAU</span></div>
+                    
+                    <!-- Tainted Characters -->
+                    <div class="character" data-character="tainted_isaac"><img src="images/tainted_isaac.png" alt="Tainted Isaac"><span>T.ISAAC</span></div>
+                    <div class="character" data-character="tainted_magdalene"><img src="images/tainted_magdalene.png" alt="Tainted Magdalene"><span>T.MAGDALENE</span></div>
+                    <div class="character" data-character="tainted_cain"><img src="images/tainted_cain.png" alt="Tainted Cain"><span>T.CAIN</span></div>
+                    <div class="character" data-character="tainted_judas"><img src="images/tainted_judas.png" alt="Tainted Judas"><span>T.JUDAS</span></div>
+                    <div class="character" data-character="tainted_blue_baby"><img src="images/tainted_blue_baby.png" alt="Tainted Blue Baby"><span>T.???</span></div>
+                    <div class="character" data-character="tainted_eve"><img src="images/tainted_eve.png" alt="Tainted Eve"><span>T.EVE</span></div>
+                    <div class="character" data-character="tainted_samson"><img src="images/tainted_samson.png" alt="Tainted Samson"><span>T.SAMSON</span></div>
+                    <div class="character" data-character="tainted_azazel"><img src="images/tainted_azazel.png" alt="Tainted Azazel"><span>T.AZAZEL</span></div>
+                    <div class="character" data-character="tainted_lazarus"><img src="images/tainted_lazarus.png" alt="Tainted Lazarus"><span>T.LAZARUS</span></div>
+                    <div class="character" data-character="tainted_eden"><img src="images/tainted_eden.png" alt="Tainted Eden"><span>T.EDEN</span></div>
+                    <div class="character" data-character="tainted_lost"><img src="images/tainted_lost.png" alt="Tainted Lost"><span>T.LOST</span></div>
+                    <div class="character" data-character="tainted_lilith"><img src="images/tainted_lilith.png" alt="Tainted Lilith"><span>T.LILITH</span></div>
+                    <div class="character" data-character="tainted_keeper"><img src="images/tainted_keeper.png" alt="Tainted Keeper"><span>T.KEEPER</span></div>
+                    <div class="character" data-character="tainted_apollyon"><img src="images/tainted_apollyon.png" alt="Tainted Apollyon"><span>T.APOLLYON</span></div>
+                    <div class="character" data-character="tainted_forgotten"><img src="images/tainted_forgotten.png" alt="Tainted Forgotten"><span>T.FORGOTTEN</span></div>
+                    <div class="character" data-character="tainted_bethany"><img src="images/tainted_bethany.png" alt="Tainted Bethany"><span>T.BETHANY</span></div>
+                    <div class="character" data-character="tainted_jacob"><img src="images/tainted_jacob.png" alt="Tainted Jacob"><span>T.JACOB</span></div>
+                </div>
+            </section>
 
-        <!-- Synergy Output -->
-        <div class="synergy-results">
-            <h2>Synergies</h2>
-            <div class="synergy-output"></div>
-        </div>
+            <section class="selected-characters">
+                <h2>SELECTED CHARACTERS</h2>
+                <div class="selected-slots">
+                    <div class="slot" data-slot="0"><span class="empty">EMPTY</span></div>
+                    <div class="slot" data-slot="1"><span class="empty">EMPTY</span></div>
+                    <div class="slot" data-slot="2"><span class="empty">EMPTY</span></div>
+                    <div class="slot" data-slot="3"><span class="empty">EMPTY</span></div>
+                </div>
+                <button class="clear-button">CLEAR</button>
+            </section>
 
-        <!-- Clear Selection Button -->
-        <button class="clear-button">Clear Selection</button>
+            <section class="output">
+                <h2>OUTPUT</h2>
+                <div class="output-table">
+                    <div class="output-header">
+                        <div class="positive">+</div>
+                        <div class="negative">-</div>
+                    </div>
+                    <div class="output-content">
+                        <div class="output-column positive-column"></div>
+                        <div class="output-column negative-column"></div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Teams Section -->
-        <div class="handpicked-synergies">
-            <h2>Teams</h2>
-            <!-- Example Team Button -->
-            <button class="team" data-team="team1">Team 1</button>
-            <button class="team" data-team="team2">Team 2</button>
-        </div>
+            <section class="teams">
+                <h2>TEAMS</h2>
+                <div class="team-grid">
+                    <div class="team" data-team="team1">
+                        <h3>Isaac + Tainted Isaac</h3>
+                        <div class="team-characters">
+                            <img src="images/isaac.png" alt="Isaac">
+                            <img src="images/tainted_isaac.png" alt="Tainted Isaac">
+                        </div>
+                    </div>
+                    <div class="team" data-team="team2">
+                        <h3>Quad Blue Baby</h3>
+                        <div class="team-characters">
+                            <img src="images/blue_baby.png" alt="Blue Baby">
+                            <img src="images/blue_baby.png" alt="Blue Baby">
+                            <img src="images/blue_baby.png" alt="Blue Baby">
+                            <img src="images/blue_baby.png" alt="Blue Baby">
+                        </div>
+                    </div>
+                    <div class="team" data-team="team3">
+                        <h3>Bad Duo</h3>
+                        <div class="team-characters">
+                            <img src="images/tainted_lazarus.png" alt="Tainted Lazarus">
+                            <img src="images/tainted_lazarus.png" alt="Tainted Lazarus">
+                        </div>
+                    </div>
+                    <div class="team" data-team="team4">
+                        <h3>Lost + Keeper</h3>
+                        <div class="team-characters">
+                            <img src="images/lost.png" alt="Lost">
+                            <img src="images/keeper.png" alt="Keeper">
+                        </div>
+                    </div>
+                    <div class="team" data-team="team5">
+                        <h3>Bethany Sisters</h3>
+                        <div class="team-characters">
+                            <img src="images/bethany.png" alt="Bethany">
+                            <img src="images/tainted_bethany.png" alt="Tainted Bethany">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
+    <script src="script.js"></script>
+</body>
+</html>
