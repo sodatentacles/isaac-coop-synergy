@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     characterElements.forEach(characterElement => {
         characterElement.addEventListener('click', () => {
             const characterId = characterElement.getAttribute('data-character');
+            console.log('Character clicked:', characterId); // Debug
             
             // Check if we can add more characters
             if (selectedCharacters.length < maxSelectedCharacters) {
@@ -210,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get the character image and name
         const characterElement = document.querySelector(`.character[data-character="${characterId}"]`);
         const characterImg = characterElement.querySelector('img').src;
-        const characterName = characterElement.querySelector('.char-name').textContent;
+        const characterName = characterElement.querySelector('span').textContent;
         
         // Update the slot
         slotElement.innerHTML = `
@@ -362,5 +363,10 @@ document.addEventListener('DOMContentLoaded', function() {
         characterElements.forEach(element => {
             element.classList.remove('positive', 'negative');
         });
+    }
+
+    // Debug - Log all selected characters whenever the selection changes
+    function logSelection() {
+        console.log('Current selection:', selectedCharacters);
     }
 });
