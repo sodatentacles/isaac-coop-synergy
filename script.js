@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get the character image and name
         const characterElement = document.querySelector(`.character[data-character="${characterId}"]`);
         const characterImg = characterElement.querySelector('img').src;
-        const characterName = characterElement.querySelector('span').textContent;
+        const characterName = characterElement.querySelector('.char-name').textContent;
         
         // Update the slot
         slotElement.innerHTML = `
